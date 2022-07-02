@@ -5,8 +5,12 @@ import {
   ShoppingBagIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { selectItems } from "../slices/basketSlice";
 
 export default function Header() {
+  // const { session } = useSession();
+
   return (
     <header>
       {/* top nav */}
@@ -14,7 +18,7 @@ export default function Header() {
         {/* logo */}
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
           <Image
-            src="https://links.papareact.com/f90"
+            src="/./logo.jpg"
             width={150}
             height={40}
             objectFit="contain"
@@ -31,8 +35,8 @@ export default function Header() {
         </div>
         {/* right nav */}
         <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-          <div className="link">
-            <p>hello garvit</p>
+          <div onClick={signIn} className="cursor-pointer  link">
+            <p>hello Yogesh</p>
             <p className="font-extrabold md:text-sm">Account & list</p>
           </div>
           <div className="link">
